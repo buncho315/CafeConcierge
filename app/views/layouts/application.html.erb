@@ -28,7 +28,7 @@
               <%= link_to "ログアウト", destroy_end_user_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to '投稿フォーム', new_end_user_path, class: 'nav-link text-dark' %>
+              <%= link_to '投稿フォーム', end_user_session_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
               <%#= link_to 'マイページ', current_end_user_path, class: 'nav-link text-dark' %>
@@ -53,12 +53,11 @@
       <div class="container">
         <div class="row no-gutters">
           <div class="col-md-4">
-            <p>婚活をする人の助けになる口コミ投稿サイト</p>
-            <%#= image_tag('logo-white.png') %>
+            <p>婚活をする人の助けをする口コミ投稿サイト</p>
           </div>
           <div class="col-md-8">
             <h6 class="text-white mt-2 mb-3">
-              <%= link_to "管理者ログイン", admin_session_path, class: 'nav-link text-dark' %></h6>
+              <%= link_to "管理者ログイン", new_admin_session_path, class: 'nav-link text-white' %></h6>
             <ul class="p-0 list-unstyled">
             </ul>
           </div>
