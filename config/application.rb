@@ -20,3 +20,5 @@ module CafeConcierge
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
+
+require 'devise/orm/active_record';
