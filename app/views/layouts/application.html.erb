@@ -55,11 +55,16 @@
             <p>婚活をする人の助けをする口コミ投稿サイト</p>
           </div>
           <div class="col-md-8">
+            <ul class="navbar-nav ml-auto">
+            <% if admin_signed_in? %>
             <h6 class="text-white mt-2 mb-3">
-              <%= link_to "管理者ログイン", new_admin_session_path, class: 'nav-link text-white' %></h6>
+            <%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-white' %>
+            </h6>
+            <% else %>
             <h6 class="text-white mt-2 mb-3">
-              <%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-white' %></h6>
-            <ul class="p-0 list-unstyled">
+            <%= link_to "管理者ログイン", new_admin_session_path, class: 'nav-link text-white' %>
+            </h6>
+            <% end %>
             </ul>
           </div>
         </div>
