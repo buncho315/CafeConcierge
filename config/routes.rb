@@ -1,19 +1,20 @@
 Rails.application.routes.draw do
 
+  devise_for :end_users
+  namespace :public do
+    post 'end_users/index'
+    get 'end_users/new'
+    get 'end_users/show'
+    delete 'end_users/destroy'
+    resources :shops
+  end
   root to: "homes#top"
   get "/about" => 'homes#about', as: 'about'
 
-  devise_for :end_users, skip: [:passwords], controllers: {
-  registrations: "end_user/registrations",
-  sessions: 'end_user/sessions'
-  }
 
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
-
-  resources :end_users ,only: [:new, :create, :index, :show, :destroy]
-  #resources :admins, only: [:show, :edit, :update]
 
   devise_scope :end_user do
     post 'end_users/guest_sign_in', to: 'end_users/sessions#guest_sign_in'

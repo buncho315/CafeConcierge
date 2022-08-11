@@ -3,10 +3,5 @@ class EndUser < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  end
-    def self.guest
-      find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |user|
-      user.password = SecureRandom.urlsafe_base64
-      user.name = "guestuser"
-    end
+         has_many :shops
 end
