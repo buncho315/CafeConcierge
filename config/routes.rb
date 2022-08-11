@@ -4,15 +4,15 @@ Rails.application.routes.draw do
   get "/about" => 'homes#about', as: 'about'
 
   devise_for :end_users, skip: [:passwords], controllers: {
-  registrations: "end_users/registrations",
-  sessions: 'public/sessions'
+  registrations: "end_user/registrations",
+  sessions: 'end_user/sessions'
   }
 
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
 
-  #resources :end_users ,only: [:new, :create, :index, :show, :destroy]
+  resources :end_users ,only: [:new, :create, :index, :show, :destroy]
   #resources :admins, only: [:show, :edit, :update]
 
   devise_scope :end_user do

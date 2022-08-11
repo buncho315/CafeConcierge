@@ -30,14 +30,14 @@
               <%= link_to '投稿フォーム', end_user_session_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'マイページ', current_end_user_path, class: 'nav-link text-dark' %>
+              <%= link_to 'マイページ', end_user_session_path(current_end_user), class: 'nav-link text-dark' %>
             </li>
             <% else %>
             <li class="nav-item">
               <%= link_to "新規登録", new_end_user_registration_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "会員ログイン", new_end_user_session_path, class: 'nav-link text-dark' %>
+              <%= link_to "会員ログイン", end_user_session_path, class: 'nav-link text-dark' %>
             </li>
             <% end %>
             </ul>
