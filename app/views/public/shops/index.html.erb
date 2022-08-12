@@ -13,6 +13,7 @@
                     <th colspan="3"></th>
                   </tr>
                 </thead>
+                <tbody>
                 <%= @shops.each do |shop| %>
                 <tr>
                     <td><%= link_to end_user_session_path(shop.id) do %>
@@ -22,6 +23,7 @@
                     <td><%= shop.body %></td>
                 </tr>
                 <% end %>
+                </tbody>
             </table>
         </div>
     </div>
