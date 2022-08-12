@@ -1,21 +1,18 @@
 <div class="container">
   <div class="row">
-    <div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
+    <div class='col-md-8 offset-md-1'>
+       <h1>CafeConcierge 管理者TOPページ</h1>
+        <!--<div class="btn-wrapper col-10 mx-auto">-->
+          <table class = "table table-hover table-inverse">
+            <tbody>
+              <tr>
+              <td><%= button_to "会員一覧" %></td>
 
-       <h2>CafeConcierge 管理者TOPページ</h2>
-        <div class="btn-wrapper col-10 mx-auto">
-          <div class="row">
-            <div>
-              <%= button_to "会員一覧" %>
-            </div>
-            <div>
-              <%= button_to "投稿一覧" %>
+              <td><%= button_to "投稿一覧" %></td>
               <!--#会員がした投稿一覧を表示-->
-            </div>
-          </div>
-        </div>
+              </tr>
+            </tbody>
+          </table>
     </div>
   </div>
-
-
 </div>
