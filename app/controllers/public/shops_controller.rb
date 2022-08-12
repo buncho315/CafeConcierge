@@ -8,6 +8,10 @@ class Public::ShopsController < ApplicationController
     @shop = Shop.new
   end
 
+  def show
+    @shop = Shop.find(params[:id])
+  end
+
   def create
     shop = Shop.new(shop_params)
     shop.end_user_id = current_end_user.id

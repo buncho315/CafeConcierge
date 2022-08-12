@@ -1,8 +1,29 @@
-<h1>投稿一覧</h1>
-<%= @shops.each do |shop| %>
-
-<p>店名</p>
-<span><%= shop.title %></span>
-
-<% end %>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'></div>
+        <p id= "notice"></p>
+        <div class='col-md-8 offset-md-1'>
+            <h1>投稿一覧</h1>
+            <table class = "table table-hover table-inverse">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>店名</th>
+                    <th>投稿者の感想</th>
+                    <th colspan="3"></th>
+                  </tr>
+                </thead>
+                <%= @shops.each do |shop| %>
+                <tr>
+                    <td><%= link_to end_user_session_path(shop.id) do %>
+                    <% end %>
+                    </td>
+                    <td><%= link_to shop.title, public_shop_path(shop.id) %></td>
+                    <td><%= shop.body %></td>
+                </tr>
+                <% end %>
+            </table>
+        </div>
+    </div>
+</div>
 
