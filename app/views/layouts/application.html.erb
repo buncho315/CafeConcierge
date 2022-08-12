@@ -33,7 +33,10 @@
               <%= link_to '投稿フォーム', new_public_shop_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'マイページ', end_user_session_path(current_end_user), class: 'nav-link text-dark' %>
+              <%= link_to '投稿一覧', public_shops_path, class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'マイページ', public_end_users_show_path(current_end_user), class: 'nav-link text-dark' %>
             </li>
             <% else %>
             <li class="nav-item">

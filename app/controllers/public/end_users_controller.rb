@@ -10,6 +10,9 @@ class Public::EndUsersController < ApplicationController
   end
 
   def show
+    #@end_user = EndUser.find(params[:id])
+    @shop = Shop.find_by(params[:id])
+    #ユーザーIDがないので、とりあえず画面表示するためにfid_
   end
 
   def destroy
