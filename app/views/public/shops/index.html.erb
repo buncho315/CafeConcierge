@@ -14,7 +14,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                <%= @shops.each do |shop| %>
+                <% @shops.each do |shop| %>
                 <tr>
                     <td><%= link_to end_user_session_path(shop.id) do %>
                     <% end %>
@@ -25,7 +25,7 @@
                 <% end %>
                 </tbody>
             </table>
+          </div>
         </div>
     </div>
 </div>
-
