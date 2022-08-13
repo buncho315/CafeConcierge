@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :end_users
+  devise_for :end_users, controllers: {
+    sessions: "public/sessions",
+    registrations: "public/registrations"
+  }
   namespace :public do
     post 'end_users/index'
     get 'end_users/new'
