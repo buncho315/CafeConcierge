@@ -5,11 +5,11 @@
         <div class='col-md-8 offset-md-1'>
           <h1>ユーザーマイページ情報</h1>
           <table class = "table table-hover table-inverse">
-          <%= @end_user.name %>
-           <%= image_tag @end_user.get_profile_image(100,100) %>
+            <% @end_user.name %>
+            <%#= image_tag @end_user.get_profile_image(100,100) %>
             <thead>
               <tr>
-                <th>ユーザーの投稿一覧</th>
+                <th><%= @end_user.name %>さんの投稿一覧</th>
               </tr>
             </thead>
             <tbody>
