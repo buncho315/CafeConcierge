@@ -7,19 +7,25 @@
             <table class = "table table-hover table-inverse">
               <thead>
                 <tr>
-                  <tr>投稿者名</tr>
+                  <th>投稿者名</th>
                   <th>店名</th>
                   <th>投稿者の感想</th>
+                  <th>店舗写真</th>
                   <th colspan="3"></th>
                 </tr>
               </thead>
               <tbody>
               <tr>
-                <% @shop.each do |shop| %>
-                <td><%= shop.end_user.name %></td>
-                <td><%= link_to shop.title, public_shop_path(shop.id) %></td>
-                <td><%= shop.body %></td>
+                <td><%= @shop.end_user.name %></td>
+                <td><%= @shop.title %></td>
+                <td><%= @shop.body %></td>
+                <td>
+                <% if @shop.image.attached? %>
+                  <%= image_tag @shop.image, size: "200x200" %>
+                <% else %>
+                  <%= image_tag 'no_image', size: "200x200" %>
                 <% end %>
+                </td>
               </tr>
               </tbody>
             </table>
