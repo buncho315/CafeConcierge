@@ -7,6 +7,7 @@
             <table class = "table table-hover table-inverse">
               <thead>
                 <tr>
+                  <tr>投稿者名</tr>
                   <th>店名</th>
                   <th>投稿者の感想</th>
                   <th colspan="3"></th>
@@ -14,8 +15,10 @@
               </thead>
               <tbody>
               <tr>
-                <td><%= link_to @shop.title, public_shop_path(@shop.id) %></td>
-                <td><%= @shop.body %></td>
+                <% @shop.each do |shop| %>
+                <td><%= shop.end_user.name %></td>
+                <td><%= link_to shop.title, public_shop_path(shop.id) %></td>
+                <td><%= shop.body %></td>
               </tr>
               </tbody>
             </table>
