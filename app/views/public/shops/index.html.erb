@@ -11,7 +11,7 @@
                     <th>店名</th>
                     <th>投稿者の感想</th>
                     <th>店舗トップ画像</th>
-                    <th colspan="3"></th>
+                    <th>コメント件数</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -27,6 +27,7 @@
                         <%= image_tag 'no_image', size: "200x200" %>
                       <% end %>
                     </td>
+                    <td><%= link_to "#{shop.comments.count}コメント", public_shop_path %></td>
                 </tr>
                 <% end %>
                 </tbody>

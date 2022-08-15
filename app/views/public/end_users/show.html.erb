@@ -21,6 +21,7 @@
                 <td>投稿したユーザー名:<%= shop.end_user.name %></td>
                 <td>店名:<%= shop.title %></td>
                 <td>店舗説明:<%= shop.body %></td>
+                <td><%#= link_to "#{shop.comments.count}"コメント, public_shop_path %></td>
               </tr>
             </tbody>
             <% end %>

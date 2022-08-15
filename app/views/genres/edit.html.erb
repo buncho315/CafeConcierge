@@ -1,0 +1,26 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'></div>
+        <p id= "notice"></p>
+        <div class='col-md-8 offset-md-1'>
+          <h1>ジャンル編集ページ</h1>
+            <table>
+              <tbody>
+                <tr>
+                  <% @genre.shops do |genre| %>
+                  <td>
+                    <label>
+                      <%= genre.radio_button :is_enabled, :true %>有効
+                    </label>
+                    <lebel>
+                      <%= genre.radio_button :is_enabled, false %>無効
+                    </lebel>
+                    <%= genre.submit '保存', class:"btn btn-success genre-submit" %>
+                  </td>
+                  <% end %>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+  </div>
+</div>

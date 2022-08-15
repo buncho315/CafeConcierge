@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     # get 'end_user/:id'
     # delete 'end_users/destroy'
     resources :shops
+    resources :comments, only: [:create]
   end
   root to: "homes#top"
   get "/about" => 'homes#about', as: 'about'
@@ -28,7 +29,7 @@ Rails.application.routes.draw do
   end
 
   #ジャンル検索機能
-  # resources :genres, only: [:show]
+  #resources :genres, only: [:show]
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
