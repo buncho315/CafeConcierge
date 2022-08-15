@@ -5,8 +5,7 @@ Rails.application.routes.draw do
     registrations: "public/registrations"
   }
   namespace :public do
-    resources :end_users
-    # post 'end_users/index'
+    resources :end_users, only: [:show, :edit, :update]
     # get 'end_users/new'
     # get 'end_user/:id'
     # delete 'end_users/destroy'

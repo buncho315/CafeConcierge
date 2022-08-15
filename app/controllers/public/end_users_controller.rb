@@ -16,6 +16,21 @@ class Public::EndUsersController < ApplicationController
     @end_user = EndUser.find(params[:id])
   end
 
+  def edit
+    @end_user = EndUser.find(params[:id])
+  end
+
+  def update
+    @end_user = EndUser.find(params[:id])
+    @end_user.update(end_user_params)
+    if @end_user.save
+      flash[:notice] = "更新成功です！"
+      redirect_to end_user_path(@end_user.id)
+    else
+      render :edit
+    end
+  end
+
   def destroy
   end
 
