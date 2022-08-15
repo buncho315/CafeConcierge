@@ -13,9 +13,9 @@ class Public::ShopsController < ApplicationController
   end
 
   def create
-    shop = Shop.new(shop_params)
-    shop.end_user_id = current_end_user.id
-    if shop.save
+    @shop = Shop.new(shop_params)
+    @shop.end_user_id = current_end_user.id
+    if @shop.save
       redirect_to  public_shops_path
     else
       render :new
