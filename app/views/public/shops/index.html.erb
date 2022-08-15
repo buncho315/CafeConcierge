@@ -27,7 +27,7 @@
                         <%= image_tag 'no_image', size: "200x200" %>
                       <% end %>
                     </td>
-                    <td><%= link_to "#{shop.comments.count}コメント", public_shop_path %></td>
+                    <td><%= link_to "#{shop.comments.count}コメント", public_shop_comments_path(shop.id) %></td>
                 </tr>
                 <% end %>
                 </tbody>

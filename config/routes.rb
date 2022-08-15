@@ -9,8 +9,9 @@ Rails.application.routes.draw do
     # get 'end_users/new'
     # get 'end_user/:id'
     # delete 'end_users/destroy'
-    resources :shops
-    resources :comments, only: [:create]
+    resources :shops do
+      resources :comments, only: [:create, :index]
+    end
   end
   root to: "homes#top"
   get "/about" => 'homes#about', as: 'about'

@@ -1,0 +1,41 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'></div>
+        <p id= "notice"></p>
+        <div class='col-md-8 offset-md-1'>
+          <h1>コメント一覧</h1>
+          <table class = "table table-hover table-inverse">
+                <thead>
+                  <tr>
+                    <th>投稿者名</th>
+                    <th>店名</th>
+                    <th>投稿者の感想</th>
+                    <th>店舗トップ画像</th>
+                  </tr>
+                  </thead>
+                <tbody>
+                  <tr>
+                    <td><%= link_to @shop.end_user.name, end_user_session_path(@shop.id) %></td>
+                    <td><%= link_to @shop.title, public_shop_path(@shop.id) %></td>
+                    <td><%= @shop.body %></td>
+                    <td>
+                      <% if @shop.image.attached? %>
+                        <%= image_tag @shop.image, size: "200x200" %>
+                      <% else %>
+                        <%= image_tag 'no_image', size: "200x200" %>
+                      <% end %>
+                    </td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <%# @commnents.each do |comment| %>
+                  <tr>
+                    <td>コメント:</td>
+                  </tr>
+                  <%# end %>
+                </tfoot>
+            </table>
+          </div>
+        </div>
+    </div>
+</div>
