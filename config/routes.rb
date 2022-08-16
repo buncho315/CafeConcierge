@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     # get 'end_user/:id'
     # delete 'end_users/destroy'
     resources :shops do
-      resources :comments, only: [:create, :index]
+      resources :comments, only: [:create, :index, :destroy]
     end
   end
   root to: "homes#top"

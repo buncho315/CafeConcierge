@@ -12,6 +12,10 @@ class Public::CommentsController < ApplicationController
     #ショップの一覧画面でコメントが反映されてるか見る
   end
 
+  def destroy
+    Comment.find(params:[:id]).destroy
+    redirect_to public_comment_path(params[:comment_id])
+  end
 
     private
 

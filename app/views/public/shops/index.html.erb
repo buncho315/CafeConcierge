@@ -9,7 +9,8 @@
                   <tr>
                     <th>投稿者名</th>
                     <th>店名</th>
-                    <th>投稿者の感想</th>
+                    <!--<th>投稿者の感想</th>-->
+                    <!--#感想はレイアウトが狭くなるから詳細見てもらう-->
                     <th>店舗トップ画像</th>
                     <th>コメント件数</th>
                   </tr>
@@ -19,7 +20,7 @@
                 <tr>
                     <td><%= link_to shop.end_user.name, end_user_session_path(shop.id) %></td>
                     <td><%= link_to shop.title, public_shop_path(shop.id) %></td>
-                    <td><%= shop.body %></td>
+                    <!--<td><%= shop.body %></td>-->
                     <td>
                       <% if shop.image.attached? %>
                         <%= image_tag shop.image, size: "200x200" %>

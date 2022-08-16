@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_13_124030) do
+ActiveRecord::Schema.define(version: 2022_08_16_024357) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -82,6 +82,15 @@ ActiveRecord::Schema.define(version: 2022_08_13_124030) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "shop_genres", force: :cascade do |t|
+    t.integer "shop_id", null: false
+    t.integer "genres_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["genres_id"], name: "index_shop_genres_on_genres_id"
+    t.index ["shop_id"], name: "index_shop_genres_on_shop_id"
+  end
+
   create_table "shops", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -95,4 +104,6 @@ ActiveRecord::Schema.define(version: 2022_08_13_124030) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "shop_genres", "genres", column: "genres_id"
+  add_foreign_key "shop_genres", "shops"
 end
