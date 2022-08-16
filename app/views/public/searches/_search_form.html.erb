@@ -1,7 +1,7 @@
 <div class="mx-auto">
- <%#= form_with url:search_path, local: true, method: :get do |f| %>
-  <%#= f.text_field :keyword %>
-  <%#= f.select :range, options_for_select([["禁煙"],["喫煙可"],["会話可能"]]) %>
-  <%#= f.submit '検索' %>
+ <%= form_with url:search_path, local: true, method: :get do |f| %>
+  <%= f.text_field :keyword %>
+  <%= f.select :range, options_for_select([["禁煙"],["喫煙可"],["会話可能"]]) %>
+  <%= f.submit '検索' %>
  <% end %>
 </div>

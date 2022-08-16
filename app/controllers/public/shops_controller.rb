@@ -25,6 +25,6 @@ class Public::ShopsController < ApplicationController
 
     private
   def shop_params
-    params.require(:shop).permit(:title, :body, :image)
+    params.require(:shop).permit(:title, :body, :image, :access)
   end
 end

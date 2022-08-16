@@ -1,11 +1,11 @@
 class CreateShops < ActiveRecord::Migration[6.1]
   def change
     create_table :shops do |t|
-      t.string :title
-      t.text :body
+      t.string :title, null: false
+      t.text :body, null: false
       t.integer :end_user_id
       t.string :image_id
-      t.integer :access
+      t.string :access, null: false
       t.string :other_image
       t.timestamps
     end

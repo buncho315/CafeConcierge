@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     sessions: "public/sessions",
     registrations: "public/registrations"
   }
+
   namespace :public do
+    get "/search", to: "search#search" #とりあえずpublic配下
     resources :end_users, only: [:show, :edit, :update]
     # get 'end_users/new'
     # get 'end_user/:id'

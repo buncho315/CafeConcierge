@@ -40,15 +40,13 @@
                       <%= link_to "削除", public_comment_path(comment.shop), method: :delete %>
                     <% end %>
                   <% end %>
+                <td>
+                  <%= form_with model: [:public, @shop, @comments] do |f| %>
+                    <%= f.text_area :comment, rows: '5', placeholder: "コメントここ" %>
+                    <%= f.submit "送信する" %>
+                  <% end %>
+                </td>
               </tfoot>
-              <!--#下は他ユーザーがこの店舗についてコメントしたい時-->
-              <div>
-                <%= form_with model: [@comment] do |f| %>
-                  <%= f.text_area :comment, rows: '5', placeholder: "コメントここ" %>
-                  <%= f.submit "送信する" %>
-                <% end %>
-              </div>
-
             </table>
         </div>
     </div>

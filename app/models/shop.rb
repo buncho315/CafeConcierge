@@ -3,7 +3,4 @@ class Shop < ApplicationRecord
   has_many :comments
   #belongs_to :genre, through: :shop_genres
   has_one_attached :image
-  validates :title, presence: true
-  validates :body, presence: true
-  # validates :access, presence: true
 end

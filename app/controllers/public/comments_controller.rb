@@ -6,7 +6,7 @@ class Public::CommentsController < ApplicationController
   end
 
   def create
-    comment = current_user.comments.new(comment_params)
+    comment = current_end_user.comments.new(comment_params)
     comment.save
     redirect_to public_shops_path
     #ショップの一覧画面でコメントが反映されてるか見る

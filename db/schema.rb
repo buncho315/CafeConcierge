@@ -92,11 +92,11 @@ ActiveRecord::Schema.define(version: 2022_08_16_024357) do
   end
 
   create_table "shops", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
+    t.string "title", null: false
+    t.text "body", null: false
     t.integer "end_user_id"
     t.string "image_id"
-    t.integer "access"
+    t.string "access", null: false
     t.string "other_image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
