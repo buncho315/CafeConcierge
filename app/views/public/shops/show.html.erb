@@ -30,20 +30,20 @@
               </tbody>
               <!--#コメント用にtfoot仮置き-->
               <tfoot>
-                <td>コメント件数:<%#= @shop.comments.count %></td>
-                  <%# @shop.comments.each do |comment| %>
-                    <%#= comment.user.name %>
-                    <%#= comment.created_at.strftime('%Y/%m/%d') %><%#= comment.comment %>
-                  <%# end %>
+                <td>コメント件数:<%= @shop.comments.count %></td>
+                  <% @shop.comments.each do |comment| %>
+                    <%= comment.user.name %>
+                    <%= comment.created_at.strftime('%Y/%m/%d') %><%#= comment.comment %>
+                  <% end %>
               </tfoot>
-              <!--#他ユーザーがこの店舗についてコメントしたい時-->
+              <!--#下は他ユーザーがこの店舗についてコメントしたい時-->
               <div>
                 <%= form_with model: [@comment] do |f| %>
                   <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
                   <%= f.submit "送信する" %>
                 <% end %>
               </div>
-              
+
             </table>
         </div>
     </div>

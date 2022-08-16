@@ -10,7 +10,6 @@ class Public::ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
-    #コメント投稿用
     @comments = Comment.new
   end
 
