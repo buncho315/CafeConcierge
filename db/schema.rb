@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2022_08_13_124030) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "name", default: "", null: false
+    t.string "first_name_kana", default: "", null: false
     t.string "postal_code", default: "", null: false
     t.string "telephone_number", default: "", null: false
     t.string "reset_password_token"
@@ -85,6 +86,9 @@ ActiveRecord::Schema.define(version: 2022_08_13_124030) do
     t.string "title"
     t.text "body"
     t.integer "end_user_id"
+    t.string "image_id"
+    t.integer "access"
+    t.string "other_image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

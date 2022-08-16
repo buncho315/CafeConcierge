@@ -17,10 +17,15 @@
             <%= form_with model: @shop, url: public_shops_path do |f| %>
           <h4>店名</h4>
             <%= f.text_field :title %>
+          <h4>トップに推したい店舗画像</h4>
+            <%= f.file_field :image, accept: "image/*" %>
+          <h4>最寄り駅</h4>
+            <%= f.text_field :access %>
           <h4>店舗説明(300文字以内)</h4>
             <%= f.text_area :body %>
-          <h4>トップに推したい店舗画像</h4>
-          <%= f.file_field :image, accept: "image/*" %>
+          <h4>ジャンル選択</h4>
+
+          <h4>その他の写真５枚まで投稿可</h4>
             <%= f.submit '投稿する' %>
             <% end %>
         </div>
