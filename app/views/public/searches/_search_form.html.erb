@@ -1,7 +1,8 @@
 <div class="mx-auto">
  <%= form_with url:search_path, local: true, method: :get do |f| %>
   <%= f.text_field :keyword %>
-  <%= f.select :range, options_for_select([["禁煙"],["喫煙可"],["会話可能"]]) %>
+  <%= f.select :range, options_for_select([["店名"],["駅名"]]) %>
+  <%= f.select :search, options_for_select([["完全一致"],["前方一致"],["後方一致"],["部分一致"]]) %>
   <%= f.submit '検索' %>
  <% end %>
 </div>

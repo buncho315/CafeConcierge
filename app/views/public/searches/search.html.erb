@@ -1,21 +1,21 @@
-<!--<h1>Books search for "test"</h1>-->
-<!--<table class="table table-hover table-inverse">-->
-<!-- <%# if @range == "EndUser" %>-->
-<!--    <tbody>-->
-<!--      <%# @end_users.each do |user| %>-->
-<!--        <tr>-->
-<!--          <td><%#= user.name %></td>-->
-<!--        </tr>-->
-<!--      <%# end %>-->
-<!--    </tbody>-->
-<!--  <%# else %>-->
-<!--    <tbody>-->
-<!--      <%# @shops.each do |shop| %>-->
-<!--        <tr>-->
-<!--          <td><%#= shop.title %></td>-->
-<!--          <td><%#= shop.body %></td>-->
-<!--        </tr>-->
-<!--      <%# end %>-->
-<!--    </tbody>-->
-<!--  <%# end %>-->
-<!--</table>-->
+<h1>検索結果表示ページ</h1>
+<!--#店名で検索して、なければ駅名でヒットさせたい-->
+<table class="table table-hover table-inverse">
+ <% if @records == "店名" %>
+    <tbody>
+      <% @shops.each do |shop| %>
+        <tr>
+          <td><%= shop.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+    <tbody>
+        <tr>
+          <td><%= shop.access %></td>
+          <!--<td><%#= shop.title %></td>-->
+          <!--<td><%#= shop.body %></td>-->
+        </tr>
+    </tbody>
+  <% end %>
+</table>

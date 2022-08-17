@@ -15,9 +15,12 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :index, :destroy]
     end
   end
+  get 'public/end_user/:id/unsubscribe' => 'public/end_user#unsubscribe', as: 'unsubscribe'
+        # 論理削除用のルーティング
+      patch '/public/end_user/:id/withdrawal' => 'public/end_user#withdrawal', as: 'withdrawal'
+
   root to: "homes#top"
   get "/about" => 'homes#about', as: 'about'
-
 
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
@@ -28,7 +31,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    root :to =>"homes#top" 
+    root :to =>"homes#top"
     resources :shops, only: [:index, :show, :edit, :update]
     resources :end_users, only: [:index, :show, :edit, :update]
   end
