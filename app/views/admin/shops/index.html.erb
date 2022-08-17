@@ -1,0 +1,24 @@
+<div class='row'>
+    <div class='col-md-3'></div>
+        <p id= "notice"></p>
+        <div class='col-md-8 offset-md-1'>
+            <h1>ユーザーからの投稿一覧</h1>
+            <table class = "table table-hover table-inverse">
+              <thead>
+                <tr>
+                  <th>店名</th>
+                  <th>投稿者名</th>
+                  <th>コメント数</th>
+                </thead>
+              <tbody>
+                <% @shops.each do |shop| %>
+                <tr>
+                  <td><%=link_to shop.name, admin_shop_path %></td>
+                  <td><%= link_to end_user.name, end_user_path %><td>
+                  <td><%= "#{@shop.comments.count}コメント", public_shop_comments_path(@shop.id) %></td>
+                    <!--#コメントにリンクは不要-->
+                </tr>
+              </tbody>
+            </table>
+        </div>
+</div>
