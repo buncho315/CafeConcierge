@@ -8,16 +8,13 @@ Rails.application.routes.draw do
   namespace :public do
     get '/search' => 'searches#search' #検索はユーザーログイン後のみなのでpublic配下
     resources :end_users, only: [:show, :edit, :update]
-    # get 'end_users/new'
-    # get 'end_user/:id'
-    # delete 'end_users/destroy'
     resources :shops do
       resources :comments, only: [:create, :index, :destroy]
     end
   end
-  get 'public/end_user/:id/unsubscribe' => 'public/end_user#unsubscribe', as: 'unsubscribe'
+  get 'public/end_user/:id/unsubscribe' => 'public/end_users#unsubscribe', as: 'unsubscribe'
         # 論理削除用のルーティング
-      patch '/public/end_user/:id/withdrawal' => 'public/end_user#withdrawal', as: 'withdrawal'
+      patch '/public/end_user/:id/withdrawal' => 'public/end_users#withdrawal', as: 'withdrawal'
 
   root to: "homes#top"
   get "/about" => 'homes#about', as: 'about'

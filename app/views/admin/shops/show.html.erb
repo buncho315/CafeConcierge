@@ -32,7 +32,7 @@
               </tbody>
 
               <div>
-                <%= button_to "内容が不適切なので削除する", {controller: 'public/end_users', action: 'show'}, method get %>
+                <%= link_to "内容が不適切なので削除する", admin_shop_path(@shop.id), method: :delete %>
               </div>
 
             </table>

@@ -3,39 +3,48 @@
     <div class='col-md-3'></div>
         <p id= "notice"></p>
         <div class='col-md-8 offset-md-1'>
-          <h1>ユーザー詳細情報</h1>
+          <h1><%= @end_user.name %>さんのユーザー情報</h1>
           <table class = "table table-hover table-inverse">
-            <% @end_user.each do |end_user| %>
             <thead>
               <tr>
-                <th><%= end_user.name %>さんのユーザー情報</th>
+                <th>ユーザー名</th>
+                <th>会員id</th>
+                <th>フリガナ</th>
+                <th>メールアドレス</th>
+                <th>電話番号</th>
+                <th>郵便番号</th>
+                <th>会員ステータス</th>
+                <th>投稿内容一覧</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>ユーザー名:<%= end_user.name %></td>
-                <td>会員id:<%= end_user.id %></td>
-                <td>フリガナ:<%= end_user.first_name_kana%></td>
-                <td>メールアドレス:<%= end_user.email %></td>
-                <td>電話番号:<%= end_user.telephone_number %></td>
-                <td>郵便番号:<%= end_user.postal_code %></td>
-                <td>会員ステータス:<br/>
-                 <%= end_user.id %>&ensp;
-                 <% if end_user.deleted_at == nil %>
+                <td><%= @end_user.name %></td>
+                <td><%= @end_user.id %></td>
+                <td><%= @end_user.first_name_kana%></td>
+                <td><%= @end_user.email %></td>
+                <td><%= @end_user.telephone_number %></td>
+                <td><%= @end_user.postal_code %></td>
+                <td>
+                 <%= @end_user.id %>&ensp;
+                 <% if @end_user.is_deleted == nil %>
                     有効
                  <% else %>
                     退会
                  <% end %>
-                <%#= form_with(model: end_user, url: admin_end_user_status_path, method: :patch, local: true) do |f| %>
-                  <%#= f.select :end_user_status, EndUser.end_user_statuses.keys.to_a, {} %>
-                  <%#= f.hidden_field :id, :value => end_user.id %>
+                <%#= form_with(model: @end_user, url: admin_@end_user_status_path, method: :patch, local: true) do |f| %>
+                  <%#= f.select :@end_user_status, EndUser.@end_user_statuses.keys.to_a, {} %>
+                  <%#= f.hidden_field :id, :value => @end_user.id %>
                   <%#= f.submit "更新",class:"btn btn-primary" %>
+                <%# end %>
+                </td>
+                <td>
+                <% @end_user.shops.each do |shop| %>
+                <%= shop.body %><br/>
                 <% end %>
                 </td>
-                <td>投稿内容一覧:<%= end_user.body %></td>
               </tr>
             </tbody>
-            <% end %>
 
             <div>
               <%= button_to "会員ステータスを変更する" %>
@@ -43,6 +52,6 @@
             </div>
 
           </table>
-        </div>
+
   </div>
 </div>

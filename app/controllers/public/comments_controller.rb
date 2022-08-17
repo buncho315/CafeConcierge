@@ -7,14 +7,14 @@ class Public::CommentsController < ApplicationController
 
   def create
     @comment = current_end_user.comments.new(comment_params)
+    @comment.shop_id = params[:shop_id]
     @comment.save
-    redirect_to public_shops_path
-    #ショップの一覧画面でコメントが反映されてるか見る
+    redirect_to public_shop_comments_path
   end
 
   def destroy
-    Comment.find(params:[:id]).destroy
-    redirect_to public_comment_path(params[:comment_id])
+    Comment.find(params[:id]).destroy
+    redirect_to public_shop_comments_path(params[:shop_id])
   end
 
     private

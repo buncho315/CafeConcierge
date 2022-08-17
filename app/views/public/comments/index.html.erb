@@ -29,7 +29,15 @@
                 </tbody>
                 <tfoot>
                   <tr>
-                    <td>コメント:</td>
+                    <% @shop.comments.each do |comment| %>
+                    <td>コメント:<%= comment.comment %>
+                    <%= comment.created_at.strftime('%Y/%m/%d') %><br/>
+                    <%= comment.end_user.name %><br/>
+                    <% if comment.end_user == current_end_user %>
+                      <%= link_to "削除", public_shop_comment_path(comment.shop, comment.id), method: :delete %>
+                    <% end %>
+                    </td>
+                    <% end %>
                   </tr>
                 </tfoot>
             </table>

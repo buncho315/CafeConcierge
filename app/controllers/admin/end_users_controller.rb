@@ -1,7 +1,7 @@
 class Admin::EndUsersController < ApplicationController
   def index
     @end_users = EndUser.all
-    @shops = EndUser.find(params[:id]).shops
+    #@shops = EndUser.find(params[:id]).shops
   end
 
   def show

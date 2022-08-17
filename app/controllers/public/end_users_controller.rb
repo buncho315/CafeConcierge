@@ -28,16 +28,16 @@ class Public::EndUsersController < ApplicationController
       render :edit
     end
   end
-  
+
   def unsubscribe
     @end_user = current_end_user
   end
-  
+
   def withdrawal
-    @end_user = current_customer
-    @end_user.update(is_deleted: false)
+    @end_user = current_end_user
+    @end_user.update(is_deleted: true)
     reset_session
-    flash[:notice] = "The withdrawal process was successful"
+    flash[:notice] = "退会は成功しました！"
     redirect_to root_path
   end
 

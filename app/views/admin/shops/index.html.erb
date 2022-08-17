@@ -13,11 +13,12 @@
               <tbody>
                 <% @shops.each do |shop| %>
                 <tr>
-                  <td><%=link_to shop.name, admin_shop_path %></td>
-                  <td><%= link_to end_user.name, end_user_path %><td>
+                  <td><%=link_to shop.title, admin_shop_path(shop.id) %></td>
+                  <td><%= link_to shop.end_user.name, admin_end_user_path(shop.end_user.id) %><td>
                   <td><%= "#{shop.comments.count}コメント" %></td>
                     <!--#コメントにリンクは不要-->
                 </tr>
+                <% end %>
               </tbody>
             </table>
         </div>
