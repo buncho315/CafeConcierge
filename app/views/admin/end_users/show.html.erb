@@ -19,20 +19,27 @@
                 <td>メールアドレス:<%= end_user.email %></td>
                 <td>電話番号:<%= end_user.telephone_number %></td>
                 <td>郵便番号:<%= end_user.postal_code %></td>
-                <td>会員ステータス:
-                <%= form_with(model: end_user, url: admin_end_user_status_path, method: :patch, local: true) do |f| %>
-                  <%= f.select :end_user_status, EndUser.end_user_statuses.keys.to_a, {} %>
-                  <%= f.hidden_field :id, :value => end_user.id %>
+                <td>会員ステータス:<br/>
+                 <%= end_user.id %>&ensp;
+                 <% if end_user.deleted_at == nil %>
+                    有効
+                 <% else %>
+                    退会
+                 <% end %>
+                <%#= form_with(model: end_user, url: admin_end_user_status_path, method: :patch, local: true) do |f| %>
+                  <%#= f.select :end_user_status, EndUser.end_user_statuses.keys.to_a, {} %>
+                  <%#= f.hidden_field :id, :value => end_user.id %>
                   <%#= f.submit "更新",class:"btn btn-primary" %>
                 <% end %>
                 </td>
-                <td>投稿内容一覧:<%= body.end_user %></td>
+                <td>投稿内容一覧:<%= end_user.body %></td>
               </tr>
             </tbody>
             <% end %>
 
             <div>
               <%= button_to "会員ステータスを変更する" %>
+              <!--#会員ステータスを有効・無効に管理者権限で変更する画面へ飛ばす-->
             </div>
 
           </table>

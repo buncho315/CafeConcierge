@@ -7,6 +7,10 @@ class EndUser < ApplicationRecord
   has_many :shops
   has_many :comments, dependent: :destroy
 
-  #has_one_attached :profile_image
+  # is_deletedがfalseならtrueを返すように
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
+
 
 end

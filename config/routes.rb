@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   }
 
   namespace :public do
-    get "/search", to: "search#search" #とりあえずpublic配下
+    get '/search' => 'searches#search' #検索はユーザーログイン後のみなのでpublic配下
     resources :end_users, only: [:show, :edit, :update]
     # get 'end_users/new'
     # get 'end_user/:id'
@@ -32,8 +32,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root :to =>"homes#top"
-    resources :shops, only: [:index, :show, :edit, :update]
-    resources :end_users, only: [:index, :show, :edit, :update]
+    resources :shops, only: [:index, :show, :edit, :update, :destroy]
+    resources :end_users, only: [:index, :show, :edit, :update, :destroy]
   end
 
   #ジャンル検索機能
