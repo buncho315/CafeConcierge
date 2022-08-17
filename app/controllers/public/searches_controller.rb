@@ -1,5 +1,5 @@
 class Public::SearchesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_end_user!
 
 	def search
   	@model = params["search"]["model"]
@@ -10,9 +10,9 @@ class Public::SearchesController < ApplicationController
   	@records = search_for(@model, @content, @method, @shop, @access)
   	@range = params[:range]
     if @range == "店名"
-      @shops = EndUser.looks(params[:search], params[:keyword])
+      @search_shops = Shop.looks(params[:search], params[:keyword])
     else
-      @access = EndUser.looks(params[:search], params[:keyword])
+      @search_shops = Shop.looks_access(params[:search], params[:keyword])
     end
 	end
 

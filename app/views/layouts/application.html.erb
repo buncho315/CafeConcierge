@@ -51,9 +51,9 @@
         </div>
       </nav>
       <!--#サインインしたら検索窓表示↓-->
-      <!--<% if end_user_signed_in? %>-->
-      <!--  <%#= render "public/searches/_search_form" %>-->
-      <!--<% end %>-->
+      <% if end_user_signed_in? %>
+        <%= render "public/searches/search_form" %>
+      <% end %>
     </header>
     <main class="mb-auto">
     <%= yield %>

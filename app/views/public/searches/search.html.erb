@@ -1,21 +1,21 @@
-<h1>検索結果表示ページ</h1>
-<!--#店名で検索して、なければ駅名でヒットさせたい-->
-<table class="table table-hover table-inverse">
- <% if @records == "店名" %>
-    <tbody>
-      <% @shops.each do |shop| %>
-        <tr>
-          <td><%= shop.name %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  <% else %>
-    <tbody>
-        <tr>
-          <td><%= shop.access %></td>
-          <!--<td><%#= shop.title %></td>-->
-          <!--<td><%#= shop.body %></td>-->
-        </tr>
-    </tbody>
-  <% end %>
-</table>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'></div>
+        <p id= "notice"></p>
+        <div class='col-md-8 offset-md-1'>
+          <h1>検索結果表示ページ</h1>
+          <table class="table table-hover table-inverse">
+              <tbody>
+                <% @search_shops.each do |shop| %>
+                  <tr>
+                    <!--#各項目にリンク貼りたい-->
+                    <td><%= shop.title %></td>
+                    <td><%= shop.access %></td>
+                    <td><%= shop.body %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+          </table>
+        </div>
+  </div>
+</div>
