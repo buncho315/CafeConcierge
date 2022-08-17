@@ -28,7 +28,9 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    root :to =>"homes#top"
+    root :to =>"homes#top" 
+    resources :shops, only: [:index, :show, :edit, :update]
+    resources :end_users, only: [:index, :show, :edit, :update]
   end
 
   #ジャンル検索機能

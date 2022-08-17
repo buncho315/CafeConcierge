@@ -1,0 +1,34 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'></div>
+        <p id= "notice"></p>
+        <div class='col-md-8 offset-md-1'>
+          <h1>ユーザー詳細情報</h1>
+          <table class = "table table-hover table-inverse">
+            <% @end_user.each do |end_user| %>
+            <thead>
+              <tr>
+                <th><%= end_user.name %>さんのユーザー情報</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ユーザー名:<%= end_user.name %></td>
+                <td>会員id:<%= end_user.id %></td>
+                <td>フリガナ:<%= end_user.first_name_kana%></td>
+                <td>メールアドレス:<%= end_user.email %></td>
+                <td>電話番号:<%= end_user.telephone_number %></td>
+                <td>郵便番号:<%= end_user.postal_code %></td>
+                <td>会員ステータス:</td>
+              </tr>
+            </tbody>
+            <% end %>
+
+            <div>
+              <%= button_to "会員ステータスを変更する" %>
+            </div>
+
+          </table>
+        </div>
+  </div>
+</div>
