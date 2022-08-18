@@ -3,6 +3,7 @@ class Shop < ApplicationRecord
   has_many :comments
   #belongs_to :genre, through: :shop_genres
   has_one_attached :image
+  has_many :favorites, dependent: :destroy
 
   def self.looks(search, word)
     if search == "完全一致"
@@ -31,4 +32,9 @@ class Shop < ApplicationRecord
       @shop = Shop.all
     end
   end
+
+  def favorited_by?(end_user)
+    favorites.exists?(end_user_id: end_user.id)
+  end
+
 end

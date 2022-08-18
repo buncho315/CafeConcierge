@@ -6,6 +6,7 @@ class EndUser < ApplicationRecord
 
   has_many :shops
   has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   # is_deletedがfalseならtrueを返すように
   def active_for_authentication?

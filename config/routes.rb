@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :end_users, only: [:show, :edit, :update]
     resources :shops do
       resources :comments, only: [:create, :index, :destroy]
+      resource :favorites, only: [:create, :destroy]
+      #いいね機能
     end
   end
   get 'public/end_user/:id/unsubscribe' => 'public/end_users#unsubscribe', as: 'unsubscribe'
