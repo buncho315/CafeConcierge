@@ -93,10 +93,10 @@ ActiveRecord::Schema.define(version: 2022_08_18_082418) do
 
   create_table "shop_genres", force: :cascade do |t|
     t.integer "shop_id", null: false
-    t.integer "genres_id", null: false
+    t.integer "genre_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["genres_id"], name: "index_shop_genres_on_genres_id"
+    t.index ["genre_id"], name: "index_shop_genres_on_genre_id"
     t.index ["shop_id"], name: "index_shop_genres_on_shop_id"
   end
 
@@ -113,6 +113,6 @@ ActiveRecord::Schema.define(version: 2022_08_18_082418) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "shop_genres", "genres", column: "genres_id"
+  add_foreign_key "shop_genres", "genres"
   add_foreign_key "shop_genres", "shops"
 end

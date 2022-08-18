@@ -1,9 +1,11 @@
 class Shop < ApplicationRecord
   belongs_to :end_user
   has_many :comments
-  #belongs_to :genre, through: :shop_genres
+  has_many :shop_genres
+  has_many :genres, through: :shop_genres
   has_one_attached :image
   has_many :favorites, dependent: :destroy
+  accepts_nested_attributes_for :genres
 
   def self.looks(search, word)
     if search == "完全一致"

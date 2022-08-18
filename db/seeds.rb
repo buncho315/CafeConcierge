@@ -5,14 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-  Admin.create!(
-    email: 'admin@admin',
-    password: 'admin1'
-  )
+  # Admin.create!(
+  #   email: 'admin@admin',
+  #   password: 'admin1'
+  # )
 
-  ShopGenre.create([
-    { name: '禁煙' },
-    { name: '喫煙可' },
-    { name: '会話可能'},
-    ])
+  # Genre.create!([
+  #   { name: '禁煙' },
+  #   { name: '喫煙可' },
+  #   { name: '会話可能'},
+  #   ])
 #ジャンルは固定のやつだけ記述
+
+  #Genre.create!([{ name: '禁煙' }])
