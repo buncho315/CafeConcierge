@@ -1,14 +1,21 @@
-<h3>ジャンル検索欄</h3>
-  <table class = "table table-hover table-inverse">
-    <tbody>
-      <tr class="genre-box">
-        <% @genre.shops.each do |genre| %>
-        <td>
-          <%= link_to genre_path(genre) do %>
-            <%= genre.name %><br>
-          <% end %>
-        </td>
-        <% end %>
-      </tr>
-    </tbody>
-  </table>
+<!--#ユーザーがログイン後にページの左側に表示したい-->
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-4'>
+      <!--#Bootstrap　本文が8なので足して１２になるように？-->
+    <h3>ジャンル検索欄</h3>
+      <table class = "table table-hover table-inverse">
+        <tbody>
+          <tr class="genre-box">
+            <% @genre.shops.each do |genre| %>
+            <td>
+              <%= link_to genre_path(genre) do %>
+                <%= genre.name %><br>
+              <% end %>
+            </td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>

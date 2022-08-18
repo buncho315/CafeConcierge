@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   end
 
   #ジャンル検索機能
-  #resources :genres, only: [:show]
+  resources :genres, only: [:create, :index, :update, :edit]
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

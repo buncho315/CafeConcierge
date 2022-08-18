@@ -70,9 +70,18 @@
             <h6 class="text-white mt-2 mb-3">
             <%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-white' %>
             </h6>
+            <h6 class="text-white mt-2 mb-3">
+            <%= link_to "会員一覧", admin_end_users_path, class: 'nav-link text-white' %>
+            </h6>
+            <h6 class="text-white mt-2 mb-3">
+            <%= link_to "投稿一覧", admin_shops_path, class: 'nav-link text-white' %>
+            </h6>
+            <h6 class="text-white mt-2 mb-3">
+            <%= link_to "ジャンル一覧", genres_path, class: 'nav-link text-white' %>
+            </h6>
             <% else %>
             <h6 class="text-white mt-2 mb-3">
-            <%= link_to "管理者ログイン", new_admin_session_path, class: 'nav-link text-white' %>
+            <%= link_to "管理者ログイン", _path, class: 'nav-link text-white' %>
             </h6>
             <% end %>
             </ul>
