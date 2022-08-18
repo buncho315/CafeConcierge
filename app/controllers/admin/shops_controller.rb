@@ -11,9 +11,10 @@ class Admin::ShopsController < ApplicationController
   end
 
   def destroy
-    #desrtoyの中身を書く
-    @shop = Shop.find(params[:id])
-    # @shop.desrtoy
+    @shop = Shop.find(params[:id]).destroy
+    flash[:success] = "削除を実行しました！"
+    redirect_to admin_end_users_path
+    #１件削除が終わったら、admin側のユーザー一覧画面に戻る
   end
 
   def update

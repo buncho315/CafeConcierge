@@ -9,4 +9,10 @@
     email: 'admin@admin',
     password: 'admin1'
   )
+
+  ShopGenre.create([
+    { name: '禁煙' },
+    { name: '喫煙可' },
+    { name: '会話可能'},
+    ])
 #ジャンルは固定のやつだけ記述

@@ -32,7 +32,8 @@
               </tbody>
 
               <div>
-                <%= link_to "内容が不適切なので削除する", admin_shop_path(@shop.id), method: :delete %>
+                <!--#↓削除前に注意文を出す-->
+                <%= link_to "内容が不適切なので削除する", admin_shop_path(@shop.id), method: :delete, data: { confirm: "本当にこの投稿を削除しますか?" } %>
               </div>
 
             </table>
