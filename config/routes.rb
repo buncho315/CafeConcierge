@@ -26,13 +26,19 @@ Rails.application.routes.draw do
   }
 
   devise_scope :end_user do
-    post '/guest_sign_in', to: 'public/sessions#guest_sign_in'
+    post 'end_users/guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
+  #ゲストユーザーが削除機能を使用できないようにする
+  # devise_for :end_users, controllers: {
+  #   registrations: 'end_users/registrations'
+  # }
 
   namespace :admin do
     root :to =>"homes#top"
     resources :shops, only: [:index, :show, :edit, :update, :destroy]
     resources :end_users, only: [:index, :show, :edit, :update, :destroy]
+    #ジャンル検索機能
+    resources :genres, only: [:create, :index, :update, :edit]
   end
 
   #ジャンル検索機能

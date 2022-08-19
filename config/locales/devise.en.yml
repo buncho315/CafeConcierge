@@ -1,5 +1,8 @@
 # Additional translations at https://github.com/heartcombo/devise/wiki/I18n
-
+ja:
+  activerecord:
+    attributes:
+    #ここで日本語化失敗？
 en:
   devise:
     confirmations:

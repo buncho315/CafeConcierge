@@ -2,7 +2,15 @@
 
 class Public::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
+  before_action :ensure_normal_end_user, only: %i[update destroy]
   # before_action :configure_account_update_params, only: [:update]
+
+  #ゲストユーザーが同時ログイン時、ログイン状態を削除できないよう、フラッシュを出した上でトップページにリダイレクト
+  def ensure_normal_end_user
+    if resource.email == 'guest@example.com'
+      redirect_to root_path, alert: 'ゲストユーザーは削除できません。'
+    end
+  end
 
   # GET /resource/sign_up
   # def new
