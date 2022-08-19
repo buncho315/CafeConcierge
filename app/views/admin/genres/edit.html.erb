@@ -7,7 +7,7 @@
             <table>
               <tbody>
                 <tr>
-                  <% @genre.shops do |genre| %>
+                  <% @genre.genres do |genre| %>
                   <td>
                     <label>
                       <%= genre.radio_button :is_enabled, :true %>有効

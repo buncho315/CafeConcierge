@@ -38,11 +38,11 @@ Rails.application.routes.draw do
     resources :shops, only: [:index, :show, :edit, :update, :destroy]
     resources :end_users, only: [:index, :show, :edit, :update, :destroy]
     #ジャンル検索機能
-    resources :genres, only: [:create, :index, :update, :edit]
+    resources :genres, only: [:create, :index, :edit, :update]
   end
 
   #ジャンル検索機能
-  resources :genres, only: [:create, :index, :update, :edit]
+  #resources :genres, only: [:create, :index, :update, :edit]
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
