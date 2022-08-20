@@ -37,11 +37,9 @@
               <!--#コメント用にtfoot仮置き-->
               <tfoot>
                 <td>コメント件数:<%= @shop.comments.count %></td>
-
-
                 <td>
                   <%= form_with model: [:public, @shop, @comments] do |f| %>
-                    <%= f.text_area :comment, rows: '5', placeholder: "コメントここ" %>
+                    <%= f.text_area :comment, rows: '8', placeholder: "コメントはここへ" %>
                     <%= f.submit "送信する" %>
                   <% end %>
                 </td>
