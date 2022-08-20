@@ -62,3 +62,5 @@ gem "net-smtp"
 gem "pry-rails"
 
 gem "enum_help"
+
+gem 'devise-i18n'
