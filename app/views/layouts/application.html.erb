@@ -60,7 +60,7 @@
     <%= yield %>
     </main>
 
-    <footer class="bg-dark text-white pt-5 pb-4">
+    <footer class="bg-success text-white pt-5 pb-4">
       <div class="container">
         <div class="row no-gutters">
           <div class="col-md-4">
@@ -69,22 +69,22 @@
           <div class="col-md-8">
             <ul class="navbar-nav ml-auto">
             <% if admin_signed_in? %>
-            <h6 class="text-white mt-2 mb-3">
+            <li class="nav-item">
             <%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-white' %>
-            </h6>
-            <h6 class="text-white mt-2 mb-3">
+            </li>
+            <li class="nav-item">
             <%= link_to "会員一覧", admin_end_users_path, class: 'nav-link text-white' %>
-            </h6>
-            <h6 class="text-white mt-2 mb-3">
+            </li>
+            <li class="nav-item">
             <%= link_to "投稿一覧", admin_shops_path, class: 'nav-link text-white' %>
-            </h6>
-            <h6 class="text-white mt-2 mb-3">
+            </li>
+            <li class="nav-item">
             <%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-white' %>
-            </h6>
+            </li>
             <% else %>
-            <h6 class="text-white mt-2 mb-3">
+            <li class="nav-item">
             <%= link_to "管理者ログイン", admin_session_path, class: 'nav-link text-white' %>
-            </h6>
+            </li>
             <% end %>
             </ul>
           </div>

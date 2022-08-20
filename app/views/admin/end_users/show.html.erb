@@ -26,17 +26,11 @@
                 <td><%= @end_user.telephone_number %></td>
                 <td><%= @end_user.postal_code %></td>
                 <td>
-                 <!--<%#= @end_user.id %>&ensp;-->
                  <% if @end_user.is_deleted.blank? %>
                     有効
                  <% else %>
                     退会
                  <% end %>
-                <%#= form_with(model: @end_user, url: admin_@end_user_status_path, method: :patch, local: true) do |f| %>
-                  <%#= f.select :@end_user_status, EndUser.@end_user_statuses.keys.to_a, {} %>
-                  <%#= f.hidden_field :id, :value => @end_user.id %>
-                  <%#= f.submit "更新",class:"btn btn-primary" %>
-                <%# end %>
                 </td>
                 <td>
                 <% @end_user.shops.each do |shop| %>
@@ -48,7 +42,6 @@
 
             <div>
               <%= link_to "会員ステータスを変更する", admin_unsubscribe_path %>
-              <!--#会員ステータスを有効・無効に管理者権限で変更する画面へ飛ばす-->
             </div>
 
           </table>
