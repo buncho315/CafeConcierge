@@ -1,26 +1,8 @@
-<div class='container'>
-  <div class='row'>
-    <div class='col-md-3'></div>
-        <p id= "notice"></p>
-        <div class='col-md-8 offset-md-1'>
-          <h1>ジャンル有効無効編集ページ</h1>
-            <table>
-              <tbody>
-                <tr>
-                  <% form_with model: @genre  do |f| %>
-                  <td>
-                    <label>
-                      <%= f.radio_button :is_enabled, :true %>有効
-                    </label>
-                    <lebel>
-                      <%= f.radio_button :is_enabled, false %>無効
-                    </lebel>
-                    <%= f.submit '保存', class:"btn btn-success genre-submit" %>
-                  </td>
-                  <% end %>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-  </div>
-</div>
+<h1>ジャンル編集ページ</h1>
+ <%= form_with model: @genre,  url: admin_genre_path(@genre)  do |f| %>
+  <%= f.radio_button :is_enabled, :true%>
+  <%= f.label :is_enabled, "有効", {value: :true, style: "display: inline-block;"} %>
+  <%= f.radio_button :is_enabled, :false %>
+  <%= f.label :is_enabled, "無効", {value: :false, style: "display: inline-block;"} %>
+  <%= f.submit "submit"%>
+<% end %>

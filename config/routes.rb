@@ -41,9 +41,12 @@ Rails.application.routes.draw do
     resources :genres, only: [:create, :index, :edit, :update]
   end
 
+  get 'admin/end_user/:id/unsubscribe' => 'admin/end_users#unsubscribe', as: 'admin/unsubscribe'
+        # 論理削除用のルーティング
+      patch '/admin/end_user/:id/withdrawal' => 'admin/end_users#withdrawal', as: 'admin/withdrawal'
+
   #ジャンル検索機能
   #resources :genres, only: [:create, :index, :update, :edit]
 
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,14 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'></div>
+        <div class='col-md-8 offset-md-1'>
+         <h2>強制退会させるページ</h2>
+          <p>
+            このユーザーを不適切として強制退会させますか？
+          </p>
+           <%= link_to "退会させる", admin_withdrawal_path,method: :PATCH,"data-confirm" => "本当に退会させますか？"  %>
+           <%= link_to "退会させない", admin_end_user_path %>
+           <!--#退会しないをクリックしたらエンドユーザーの詳細ページに戻りたい-->
+        </div>
+  </div>
+</div>

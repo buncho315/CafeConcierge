@@ -6,8 +6,8 @@ class Admin < ApplicationRecord
 
 
   enum end_user_status_methods: {
-    # active => 0,
-    # withdraw => 1
+    active: 0,
+    withdraw: 1
   }
 
 end

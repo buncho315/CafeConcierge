@@ -26,8 +26,8 @@
                 <td><%= @end_user.telephone_number %></td>
                 <td><%= @end_user.postal_code %></td>
                 <td>
-                 <%= @end_user.id %>&ensp;
-                 <% if @end_user.is_deleted == nil %>
+                 <!--<%#= @end_user.id %>&ensp;-->
+                 <% if @end_user.is_deleted.blank? %>
                     有効
                  <% else %>
                     退会
@@ -47,7 +47,7 @@
             </tbody>
 
             <div>
-              <%= link_to "会員ステータスを変更する" %>
+              <%= link_to "会員ステータスを変更する", admin_unsubscribe_path %>
               <!--#会員ステータスを有効・無効に管理者権限で変更する画面へ飛ばす-->
             </div>
 

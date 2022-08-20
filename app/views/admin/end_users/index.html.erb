@@ -7,16 +7,15 @@
               <thead>
                 <tr>
                   <th>投稿者名</th>
-                  <th>コメント数</th>
+                  <th>投稿内容</th>
                 </thead>
               <tbody>
                 <% @end_users.each do |end_user| %>
                 <tr>
                   <td><%= link_to end_user.name, admin_end_user_path(end_user) %><td>
                     <% end_user.shops.each do |shop| %>
-                  <td><%= link_to "#{shop.comments.count}コメント", public_shop_comments_path(shop.id) %></td>
+                  <td><%= link_to "#{shop.comments.count}コメント付", public_shop_comments_path(shop.id) %></td>
                     <% end %>
-                    <!--#コメントにリンクは不要-->
                 </tr>
                 <% end %>
               </tbody>

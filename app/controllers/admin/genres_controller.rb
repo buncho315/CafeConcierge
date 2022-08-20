@@ -9,7 +9,7 @@ class Admin::GenresController < ApplicationController
   end
 
   def create
-    @genre = Genre.all
+    @genre = Genre.new
   end
 
   def update
