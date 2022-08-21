@@ -4,16 +4,14 @@
         <p id= "notice"></p>
         <div class='col-md-8 offset-md-1'>
           <h1>ジャンル一覧・追加用ページ</h1>
-
-          <%= form_with url: admin_genres_path do |f| %>
+          <%= form_with model: @genre, url: admin_genres_path do |f| %>
             </br>
             <h4>ジャンル</h4>
             <%= f.text_field :name %>
             </br>
-            <%= link_to '追加',admin_genres_path, class: 'btn btn-primary' %>
-            <!--#f.submit?-->
+            <%#= link_to '追加',admin_genres_path, class: 'btn btn-primary' %>
+            <%= f.submit "追加", class: 'btn btn-primary' %>
           <% end %>
-
             <table>
               <thead>
                 <tr>

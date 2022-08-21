@@ -1,8 +1,18 @@
-<h1>ジャンル編集ページ</h1>
- <%= form_with model: @genre,  url: admin_genre_path(@genre)  do |f| %>
-  <%= f.radio_button :is_enabled, :true%>
-  <%= f.label :is_enabled, "有効", {value: :true, style: "display: inline-block;"} %>
-  <%= f.radio_button :is_enabled, :false %>
-  <%= f.label :is_enabled, "無効", {value: :false, style: "display: inline-block;"} %>
-  <%= f.submit "submit"%>
-<% end %>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'></div>
+        <p id= "notice"></p>
+        <div class='col-md-8 offset-md-1'>
+         <h1>ジャンル編集ページ</h1>
+          <%= form_with model: @genre,  url: admin_genre_path(@genre)  do |f| %>
+           <%#= f.fields :name %>
+           <!--#↑前ページで指定したジャンル名を表示-->
+           <%= f.radio_button :is_enabled, :true%>
+           <%= f.label :is_enabled, "有効", {value: :true, style: "display: inline-block;"} %>
+           <%= f.radio_button :is_enabled, :false %>
+           <%= f.label :is_enabled, "無効", {value: :false, style: "display: inline-block;"} %>
+           <%= f.submit "決定" %>
+         <% end %>
+        </div>
+  </div>
+</div>

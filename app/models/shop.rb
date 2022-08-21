@@ -1,7 +1,7 @@
 class Shop < ApplicationRecord
   belongs_to :end_user
-  has_many :comments
-  has_many :shop_genres
+  has_many :comments, dependent: :destroy
+  has_many :shop_genres, dependent: :destroy
   has_many :genres, through: :shop_genres
   has_one_attached :image
   has_many :favorites, dependent: :destroy

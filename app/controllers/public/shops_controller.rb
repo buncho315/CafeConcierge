@@ -6,6 +6,7 @@ class Public::ShopsController < ApplicationController
 
   def new
     @shop = Shop.new
+    @genres = Genre.where(is_enabled: true)
   end
 
   def show

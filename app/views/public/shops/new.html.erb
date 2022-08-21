@@ -27,7 +27,7 @@
           <div class="form-group">
           <%= f.label :genres %>
             <div class="checkbox">
-              <%= collection_check_boxes(:shop, :genre_ids, Genre.all, :id, :name, include_hidden: false) do |g| %>
+              <%= collection_check_boxes(:shop, :genre_ids, @genres, :id, :name, include_hidden: false) do |g| %>
                 <%= g.label {g.check_box + g.text} %>
               <% end %>
               </div>

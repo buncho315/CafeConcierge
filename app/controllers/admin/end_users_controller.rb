@@ -28,8 +28,6 @@ class Admin::EndUsersController < ApplicationController
     @end_user = EndUser.find(params[:id])
     # is_deletedカラムをtrueに変更することにより削除フラグを立てる
     @end_user.update(is_deleted: true)
-    #byebug
-    reset_session
     redirect_to admin_end_users_path
   end
 
