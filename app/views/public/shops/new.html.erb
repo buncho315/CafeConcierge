@@ -4,7 +4,6 @@
         <p id= "notice"></p>
         <div class='col-md-8 offset-md-1'>
           <h1>新規投稿画面</h1>
-
           <% if @shop.errors.any? %>
             <%= @shop.errors.count %>件のエラーが発生しました
             <ul>
@@ -30,12 +29,19 @@
               <%= collection_check_boxes(:shop, :genre_ids, @genres, :id, :name, include_hidden: false) do |g| %>
                 <%= g.label {g.check_box + g.text} %>
               <% end %>
-              </div>
+            </div>
           </div>
-            <%#= f.fields_for :genres, @shop.genres.build do |ff| %>
-              <%#= ff.collection_select :name, Genre.all, :id, :name %>
-            <%# end %>
-          <!--<h4>その他の写真５枚まで投稿可</h4>データ重くなるから項目削除-->
+
+          <h4>５段階評価</h4>
+          <script>
+            $('#star').raty({
+              size     : 36,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              scoreName: 'shop[rate]',
+            });
+          </script>
+
             <%= f.submit '投稿する' %>
             <% end %>
         </div>

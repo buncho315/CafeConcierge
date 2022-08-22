@@ -13,9 +13,10 @@
                   <th>投稿者の感想</th>
                   <th>店舗写真</th>
                   <th>ジャンル</th>
-                  <th colspan="3"></th>
+                  <th>評価</th>
                 </tr>
               </thead>
+
               <tbody>
               <tr>
                 <td><%= @shop.end_user.name %></td>
@@ -32,9 +33,25 @@
                 <td>
                   <%= @shop.genres.map(&:name).join(',') %>
                   </td>
+                <td>
+                  <div class="relative-post-evaluation">
+                    <span id="star-rate-<%= @shop.id %>"></span>
+                    <script>
+                      $('#star-rate-<%= @shop.id %>').raty({
+                        size: 36,
+                        starOff: "<%= asset_path('star-off.png') %>",
+                        starOn: "<%= asset_path('star-on.png') %>",
+                        readOnly: true,
+                        score: <%= @shop.rate %>,
+                      });
+                    </script>
+                    <%= @shop.rate %>
+                  </div>
+
+                </td>
               </tr>
               </tbody>
-              <!--#コメント用にtfoot仮置き-->
+
               <tfoot>
                 <td>コメント件数:<%= @shop.comments.count %></td>
                 <td>
