@@ -49,7 +49,7 @@ class Public::EndUsersController < ApplicationController
   private
 
   def end_user_params
-    params.require(:end_user).permit(:title, :body)
+    params.require(:end_user).permit(:title, :body, :profile_image)
   end
 
   #ゲストユーザー

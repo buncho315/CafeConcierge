@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Public::RegistrationsController < Devise::RegistrationsController
-  before_action :configure_sign_up_params, only: [:create]
+  # before_action :configure_sign_up_params, only: [:create]
   before_action :ensure_normal_end_user, only: %i[update destroy]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -28,9 +28,9 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+   def update
+     super
+   end
 
   # DELETE /resource
   # def destroy
@@ -46,12 +46,16 @@ class Public::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def after_update_path_for(resource)
+    public_end_user_path(current_end_user)
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
-  def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :postal_code, :telephone_number])
-  end
+  # def configure_sign_up_params
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :postal_code, :telephone_number])
+  # end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params

@@ -4,12 +4,12 @@
         <p id= "notice"></p>
         <div class='col-md-8 offset-md-1'>
           <h1><%= @end_user.name %>さんのプロフィール編集</h1>
-            <%= form_with model: @end_user_session_path do |f| %>
+            <%= form_with model:@end_user, url: end_user_registration_path do |f| %>
              <h4><label for="inputName">登録名</label><br/>
              <%= f. text_field :name, autofocus: true, id:"inputName", placeholder:"登録名" %>
              </h4>
              <h4><label for="inputName">フリガナ</label><br/>
-              <%= f. text_field :name_kana, autofocus: true, id:"inputName", placeholder:"フリガナ" %>
+              <%= f. text_field :first_name_kana, autofocus: true, id:"inputName", placeholder:"フリガナ" %>
              </h4>
              <h4><label for="mail">メールアドレス</label><br/>
                <%= f. text_field :email, autofocus: true, id:"inputName", placeholder:"メールアドレス" %>
@@ -23,6 +23,23 @@
              <h4><label for="inputImage">プロフィール画像</label><br/>
              <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
              </h4>
+             <h4>
+               <label for="field">
+                <%= f.label :password %> <i>(変更がない場合はそのまま進んでください)</i><br />
+                <%= f.password_field :password, autocomplete: "new-password" %>
+                <% if @minimum_password_length %>
+                  <br />
+                  <em><%= @minimum_password_length %> characters minimum</em>
+                <% end %>
+              </label>
+             </h4>
+             <h4><label for="password">確認パスワード</label><br/>
+               <%=f.password_field :password_confirmation, autocomplete: "new-password" %>
+             </h4>
+             <h4><label for="password">現在のパスワード</label><br/>
+              <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+              <%= f.password_field :current_password, autocomplete: "current-password" %>
+            </h4>
              <h4>
                <%= f.submit "変更を保存" %>
              </h4>

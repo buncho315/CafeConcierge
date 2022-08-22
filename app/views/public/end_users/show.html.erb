@@ -6,7 +6,7 @@
           <h1>ユーザー情報</h1>
           <table class = "table table-hover table-inverse">
             <% @end_user.name %>
-            <%= image_tag @end_user.profile_image(100,100) %>
+            <%= image_tag @end_user.get_profile_image(100,100) %>
             <% if @end_user == current_end_user %>
               <p><%= link_to "プロフィール編集", edit_public_end_user_path(@end_user) %></p>
             <% end %>

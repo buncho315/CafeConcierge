@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   }
 
   namespace :public do
-    get '/search' => 'searches#search' #検索はユーザーログイン後のみなのでpublic配下
+    get '/search' => 'searches#search'
     resources :end_users, only: [:show, :edit, :update]
     resources :shops do
       resources :comments, only: [:create, :index, :destroy]
