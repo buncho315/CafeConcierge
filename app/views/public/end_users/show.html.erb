@@ -3,10 +3,10 @@
     <div class='col-md-3'></div>
         <p id= "notice"></p>
         <div class='col-md-8 offset-md-1'>
-          <h1>ユーザーマイページ情報</h1>
+          <h1>ユーザー情報</h1>
           <table class = "table table-hover table-inverse">
             <% @end_user.name %>
-            <%#= image_tag @end_user.profile_image(100,100) %>
+            <%= image_tag @end_user.profile_image(100,100) %>
             <% if @end_user == current_end_user %>
               <p><%= link_to "プロフィール編集", edit_public_end_user_path(@end_user) %></p>
             <% end %>
@@ -16,13 +16,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+            <tr>
             <% @shops.each do |shop| %>
-                <td>投稿したユーザー名:<%= shop.end_user.name %></td>
-                <td>店名:<%= shop.title %></td>
-                <td>店舗説明:<%= shop.body %></td>
-                <td>コメント数:<%= link_to "#{shop.comments.count}コメント", public_shop_comments_path(shop.id) %></td>
-              </tr>
+              <td>投稿したユーザー名:<%= shop.end_user.name %></td>
+              <td>店名:<%= shop.title %></td>
+              <td>店舗説明:<%= shop.body %></td>
+              <td>コメント数:<%= link_to "#{shop.comments.count}コメント", public_shop_comments_path(shop.id) %></td>
+            </tr>
             </tbody>
             <% end %>
           </table>

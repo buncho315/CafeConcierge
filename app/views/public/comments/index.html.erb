@@ -15,7 +15,7 @@
                   </thead>
                 <tbody>
                   <tr>
-                    <td><%= link_to @shop.end_user.name, end_user_session_path(@shop.id) %></td>
+                    <td><%= link_to @shop.end_user.name, public_end_user_path(@shop.id) %></td>
                     <td><%= link_to @shop.title, public_shop_path(@shop.id) %></td>
                     <td><%= @shop.body %></td>
                     <td>
