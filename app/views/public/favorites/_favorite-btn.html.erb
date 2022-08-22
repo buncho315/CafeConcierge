@@ -1,14 +1,17 @@
-<td><% if @shop.favorited_by?(current_end_user) %>
-    <p>
-      <%= link_to shop_favorites_path(@shop.end_user), method: :delete, local :false class: "favorite_btn" do %>
-        ♥<%= @shop.favorites.count %> いいね
-      <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to shop_favorites_path(@shop.end_user), method: :post, local: false, class: "favorite_btn" do %>
-        ♡<%= @shop.favorites.count %> いいね
-      <% end %>
-    </p>
+<td>
+  <% if end_user_signed_in? %>
+    <% if @shop.favorited_by?(current_end_user) %>
+      <p>
+        <%= link_to shop_favorites_path(@shop.end_user), method: :delete, local :false class: "favorite_btn" do %>
+          ♥<%= @shop.favorites.count %> いいね
+        <% end %>
+      </p>
+      <% else %>
+      <p>
+        <%= link_to shop_favorites_path(@shop.end_user), method: :post, local: false, class: "favorite_btn" do %>
+          ♡<%= @shop.favorites.count %> いいね
+        <% end %>
+      </p>
+    <% end %>
   <% end %>
 </td>

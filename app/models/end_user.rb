@@ -8,6 +8,10 @@ class EndUser < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+  def favorited_by?(shop_id)
+   favoritess.where(shop_id: shop_id).exists?
+  end
+
   def self.guest
     find_or_create_by(name: 'guestuser', email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
