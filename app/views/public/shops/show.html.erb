@@ -33,7 +33,7 @@
                 </td>
                 <td>
                   <%= @shop.genres.map(&:name).join(',') %>
-                  </td>
+                </td>
                 <td>
                   <div class="relative-post-evaluation">
                     <span id="star-rate-<%= @shop.id %>"></span>
@@ -50,10 +50,9 @@
                   </div>
                 </td>
                 <td>
-                  #ここにいいね機能
-                <div id="favorites_buttons_<%= @shop.id %>">
-                 <%= render partial: 'favorites/favorite-btn', locals: {shop: @shop} %>
-                </div>
+                  <div id="favorites_btn_<%= @shop.id %>">
+                   <%= render 'public/favorites/favorite-btn',shop: @shop %>
+                  </div>
                 </td>
               </tr>
               </tbody>

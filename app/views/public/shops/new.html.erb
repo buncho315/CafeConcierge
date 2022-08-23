@@ -26,13 +26,14 @@
           <div class="form-group">
           <%= f.label :genres %>
             <div class="checkbox">
-              <%= collection_check_boxes(:shop, :genre_ids, @genres, :id, :name, include_hidden: false) do |g| %>
+              <%= f.collection_check_boxes(:genre_ids, @genres, :id, :name, include_hidden: false) do |g| %>
                 <%= g.label {g.check_box + g.text} %>
               <% end %>
             </div>
           </div>
 
           <h4>５段階評価</h4>
+          <div id="star"></div>
           <script>
             $('#star').raty({
               size     : 36,

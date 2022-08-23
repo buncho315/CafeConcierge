@@ -20,12 +20,13 @@ class Public::ShopsController < ApplicationController
     if @shop.save
       redirect_to  public_shops_path
     else
+      @genres = Genre.where(is_enabled: true)
       render :new
     end
   end
 
     private
   def shop_params
-    params.require(:shop).permit(:title, :body, :image, :access, genre_ids: [])
+    params.require(:shop).permit(:title, :body, :image, :access, :rate, genre_ids: [])
   end
 end
