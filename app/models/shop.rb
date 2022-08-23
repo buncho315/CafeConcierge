@@ -6,6 +6,9 @@ class Shop < ApplicationRecord
   has_one_attached :image
   has_many :favorites, dependent: :destroy
   accepts_nested_attributes_for :genres
+  validates :rate, numericality: {
+    less_than_or_equal_to: 5,
+    greater_than_or_equal_to: 1}, presence: true
 
   def self.looks(search, word)
     if search == "完全一致"
