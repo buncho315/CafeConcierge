@@ -15,7 +15,7 @@
             <tbody>
               <% @search_shops.each do |shop| %>
                 <tr>
-                  <td><%= shop.title %></td>
+                  <td><%= link_to shop.title, public_shop_path(shop.id) %></td>
                   <td><%= shop.access %></td>
                   <td><%= shop.body %></td>
                 </tr>
