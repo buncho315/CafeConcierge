@@ -2,19 +2,25 @@
   <div class='row'>
     <div class='col-md-3'></div>
         <p id= "notice"></p>
-        <div class='col-md-8 offset-md-1'>
+        <div class>
           <h1>検索結果表示ページ</h1>
           <table class="table table-hover table-inverse">
-              <tbody>
-                <% @search_shops.each do |shop| %>
-                  <tr>
-                    <!--#各項目にリンク貼りたい-->
-                    <td><%= shop.title %></td>
-                    <td><%= shop.access %></td>
-                    <td><%= shop.body %></td>
-                  </tr>
-                <% end %>
-              </tbody>
+            <thead>
+                <tr>
+                  <th>店名</th>
+                  <th>最寄り駅名</th>
+                  <th>投稿者コメント</th>
+                </tr>
+            </thead>
+            <tbody>
+              <% @search_shops.each do |shop| %>
+                <tr>
+                  <td><%= shop.title %></td>
+                  <td><%= shop.access %></td>
+                  <td><%= shop.body %></td>
+                </tr>
+              <% end %>
+            </tbody>
           </table>
         </div>
   </div>
