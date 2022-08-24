@@ -9,12 +9,13 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <script src="https://cdn.jsdelivr.net/npm/jquery-raty-js@2.8.0/lib/jquery.raty.min.js"></script>
   </head>
 
-  <body class="d-flex flex-column vh-100">
+  <body class="d-flex flex-column vh-100 background">
     <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
           <a class="navbar-brand p-3" href="/"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -36,7 +37,7 @@
             <li class="nav-item">
               <%= link_to '投稿一覧', public_shops_path, class: 'nav-link text-dark' %>
             </li>
-            <i class="nav-item">
+            <li class="nav-item">
               <%= link_to 'マイページ', public_end_user_path(current_end_user), class: 'nav-link text-dark' %>
             </li>
             <% else %>
@@ -65,9 +66,9 @@
       <div class="container">
         <div class="row no-gutters">
           <div class="col-md-4">
-            <i class="nav-item">
+            <div class>
               <%= link_to "婚活中の人へ向けたカフェ口コミ投稿サイト", root_path, class: "nav-link text-white" %>
-            </i>
+            </div>
           </div>
           <div class="col-md-8">
             <ul class="navbar-nav ml-auto">

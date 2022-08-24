@@ -6,7 +6,7 @@ class Public::CommentsController < ApplicationController
   end
 
   def create
-    @comment = current_end_user.comments.new(comment_params)
+    @comment = current_end_user.comment.new(comment_params)
     @comment.shop_id = params[:shop_id]
     @comment.save
     redirect_to public_shop_comments_path
