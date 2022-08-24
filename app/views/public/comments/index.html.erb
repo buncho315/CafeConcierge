@@ -15,7 +15,7 @@
                   </thead>
                 <tbody>
                   <tr>
-                    <td><%= link_to @shop.end_user.name, public_end_user_path(@shop.id) %></td>
+                    <td><%= link_to @shop.end_user.name, public_end_user_path(@shop.end_user) %></td>
                     <td><%= link_to @shop.title, public_shop_path(@shop.id) %></td>
                     <td><%= @shop.body %></td>
                     <td>
@@ -30,9 +30,9 @@
                 <tfoot>
                   <tr>
                     <% @shop.comments.each do |comment| %>
-                    <td>コメント:<%= comment.comment %>
-                    <%= comment.created_at.strftime('%Y/%m/%d') %><br/>
-                    <%= comment.end_user.name %><br/>
+                    <td>コメント:<%= comment.comment %><br/>
+                    投稿日時：<%= comment.created_at.strftime('%Y/%m/%d') %><br/>
+                    コメント者：<%= comment.end_user.name %><br/>
                     <% if comment.end_user == current_end_user %>
                       <%= link_to "削除", public_shop_comment_path(comment.shop, comment.id), method: :delete %>
                     <% end %>
