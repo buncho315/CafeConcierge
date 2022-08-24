@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-p {
-  background-image: url("backimage.jpeg");
-  background-attachment: fixed;
+
+body {
+  font-family: "Noto Serif JP", serif !important;
 }
