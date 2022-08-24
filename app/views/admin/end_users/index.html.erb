@@ -2,11 +2,12 @@
     <div class='col-md-3'></div>
         <p id= "notice"></p>
         <div class>
-            <h1>会員一覧</h1>
+            <h1>有効会員一覧</h1>
             <table class = "table table-hover table-inverse">
               <thead>
                 <tr>
                   <th>投稿者名</th>
+                  <th colspan="2"></th>
                   <th>投稿内容</th>
                 </thead>
               <tbody>
@@ -14,6 +15,7 @@
                 <tr>
                   <td><%= link_to end_user.name, admin_end_user_path(end_user) %><td>
                     <% end_user.shops.each do |shop| %>
+                  <td></td>
                   <td><%= link_to "#{shop.comments.count}コメント付", public_shop_comments_path(shop.id) %></td>
                     <% end %>
                 </tr>

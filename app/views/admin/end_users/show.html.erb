@@ -14,7 +14,7 @@
                 <th>電話番号</th>
                 <th>郵便番号</th>
                 <th>会員ステータス</th>
-                <th>投稿内容一覧</th>
+                <!--<th>投稿内容一覧</th>-->
               </tr>
             </thead>
             <tbody>
@@ -32,13 +32,17 @@
                     退会
                  <% end %>
                 </td>
-                <td>
-                <% @end_user.shops.each do |shop| %>
-                <%= shop.body %><br/>
-                <% end %>
-                </td>
               </tr>
             </tbody>
+
+            <tfoot>
+              <th>投稿内容一覧</th>
+                <td>
+                  <% @end_user.shops.each do |shop| %>
+                  <%= shop.body %><br/>
+                  <% end %>
+                </td>
+            </tfoot>
 
             <div>
               <%= link_to "会員ステータスを変更する", admin_unsubscribe_path %>

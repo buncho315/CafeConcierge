@@ -9,6 +9,7 @@
                   <tr>
                     <th>投稿者名</th>
                     <th>店名</th>
+                    <th>最寄り駅</th>
                     <th>投稿者の感想</th>
                     <th>店舗トップ画像</th>
                   </tr>
@@ -17,28 +18,30 @@
                   <tr>
                     <td><%= link_to @shop.end_user.name, public_end_user_path(@shop.end_user) %></td>
                     <td><%= link_to @shop.title, public_shop_path(@shop.id) %></td>
+                    <td><%= @shop.access %></td>
                     <td><%= @shop.body %></td>
                     <td>
                       <% if @shop.image.attached? %>
-                        <%= image_tag @shop.image, size: "200x200" %>
+                        <%= image_tag @shop.image, size: "150x150" %>
                       <% else %>
-                        <%= image_tag 'no_image', size: "200x200" %>
+                        <%= image_tag 'no_image', size: "150x150" %>
                       <% end %>
                     </td>
                   </tr>
                 </tbody>
                 <tfoot>
+                  <% @shop.comments.each do |comment| %>
                   <tr>
-                    <% @shop.comments.each do |comment| %>
-                    <td>コメント:<%= comment.comment %><br/>
-                    投稿日時：<%= comment.created_at.strftime('%Y/%m/%d') %><br/>
-                    コメント者：<%= comment.end_user.name %><br/>
-                    <% if comment.end_user == current_end_user %>
-                      <%= link_to "削除", public_shop_comment_path(comment.shop, comment.id), method: :delete %>
-                    <% end %>
+                    <td colspan="5">
+                      コメント:<%= comment.comment %><br/>
+                      投稿日時：<%= comment.created_at.strftime('%Y/%m/%d') %><br/>
+                      コメント者：<%= comment.end_user.name %><br/>
+                      <% if comment.end_user == current_end_user %>
+                        <%= link_to "削除", public_shop_comment_path(comment.shop, comment.id), method: :delete %>
+                      <% end %>
                     </td>
-                    <% end %>
-                  </tr>
+                   </tr>
+                  <% end %>
                 </tfoot>
             </table>
           </div>
