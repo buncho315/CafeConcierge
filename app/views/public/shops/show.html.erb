@@ -59,10 +59,13 @@
 
               <tfoot>
                 <td>コメント件数:<%= @shop.comments.count %></td>
+                <!--#ゲストユーザーの時はコメント欄を表示しない-->
                 <td>
-                  <%= form_with model: [:public, @shop, @comments] do |f| %>
-                    <%= f.text_area :comment, rows: '8', placeholder: "コメントはここへ" %>
-                    <%= f.submit "送信する" %>
+                  <% if end_user_signed_in? %>
+                    <%= form_with model: [:public, @shop, @comments] do |f| %>
+                      <%= f.text_area :comment, rows: '8', placeholder: "コメントはここへ" %>
+                      <%= f.submit "送信する" %>
+                    <% end %>
                   <% end %>
                 </td>
               </tfoot>
