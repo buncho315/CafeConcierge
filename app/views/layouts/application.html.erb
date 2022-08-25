@@ -58,6 +58,12 @@
       <% end %>
     </header>
 
+    <% if flash[:notice] %>
+      <p>
+        <%= flash[:notice] %>
+      </p>
+    <% end %>
+
     <main class="mb-auto">
     <%= yield %>
     </main>
