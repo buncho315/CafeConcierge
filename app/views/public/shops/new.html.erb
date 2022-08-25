@@ -14,17 +14,17 @@
           <% end %>
 
           <%= form_with model: @shop, url: public_shops_path do |f| %>
-          <h4>店名</h4>
+          <h4>店名 Title</h4>
             <%= f.text_field :title %>
-          <h4>トップに推したい店舗画像</h4>
+          <h4>トップに推したい店舗画像(なければNoImageになります)</h4>
             <%= f.file_field :image, accept: "image/*" %>
-          <h4>最寄り駅</h4>
+          <h4>最寄り駅 Access</h4>
             <%= f.text_field :access %>
-          <h4>店舗説明(300文字以内)</h4>
+          <h4>店舗説明(300文字以内) Body</h4>
             <%= f.text_area :body %>
-          <h4>ジャンル選択</h4>
+          <h4>ジャンル選択 Genres</h4>
           <div class="form-group">
-          <%= f.label :genres %>
+          <%#= f.label :genres %>
             <div class="checkbox">
               <%= f.collection_check_boxes(:genre_ids, @genres, :id, :name, include_hidden: false) do |g| %>
                 <%= g.label {g.check_box + g.text} %>
@@ -32,7 +32,7 @@
             </div>
           </div>
 
-          <h4>５段階評価</h4>
+          <h4>５段階評価 Rate</h4>
           <div id="star"></div>
           <script>
             $('#star').raty({
