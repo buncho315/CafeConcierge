@@ -46,15 +46,7 @@
              <h4>
                <%= link_to "退会する", unsubscribe_path(current_end_user) %>
              </h4>
-
-            <% if @end_user.name != "guestuser" %>
-            <div class='row'>
-              <%= link_to '', edit_end_user_password_path(@end_user), class: "btn btn-outline-secondary edit_end_user_#{@end_user}" %>
-            </div>
             <% end %>
-
-            <% end %>
-
         </div>
   </div>
 </div>
