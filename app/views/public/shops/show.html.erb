@@ -61,6 +61,10 @@
                 <td>コメント件数:<%= @shop.comments.count %></td>
                 <!--#ゲストユーザーの時はコメント欄を表示しない-->
                 <td>
+                  <% if current_end_user == guestuser? %>
+                    <%= render "public/comments/no_comments" %>
+                  <% end %>
+
                   <% if end_user_signed_in? %>
                     <%= form_with model: [:public, @shop, @comments] do |f| %>
                       <%= f.text_area :comment, rows: '8', placeholder: "コメントはここへ" %>

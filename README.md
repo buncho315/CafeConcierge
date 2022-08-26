@@ -31,7 +31,8 @@
 ## サイト概要
 
 ## ER図
-https://user-images.githubusercontent.com/104818565/186823466-3566acac-f4b6-4ea5-a410-9eea73019541.jpeg)
+![EF040DE5-BEF0-4D74-B950-F55D657D950F_1_201_a](https://user-images.githubusercontent.com/104818565/186850051-928c674a-1329-49a5-abb7-fc2f085ba9b8.jpeg)
+
 
 ## 開発環境
 - OS：Linux(CentOS)

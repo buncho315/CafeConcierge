@@ -24,7 +24,6 @@
             <%= f.text_area :body %>
           <h4>ジャンル選択 Genres</h4>
           <div class="form-group">
-          <%#= f.label :genres %>
             <div class="checkbox">
               <%= f.collection_check_boxes(:genre_ids, @genres, :id, :name, include_hidden: false) do |g| %>
                 <%= g.label {g.check_box + g.text} %>
