@@ -50,22 +50,21 @@
                   </div>
                 </td>
                 <td>
-                  <div id="favorites_btn_<%= @shop.id %>">
-                   <%= render 'public/favorites/favorite-btn',shop: @shop %>
-                  </div>
+                  <% if current_end_user.email != 'guest@example.com' %>
+                    <div id="favorites_btn_<%= @shop.id %>">
+                     <%= render 'public/favorites/favorite-btn',shop: @shop %>
+                    </div>
+                  <% end %>
                 </td>
               </tr>
               </tbody>
 
               <tfoot>
                 <td>コメント件数:<%= @shop.comments.count %></td>
-                <!--#ゲストユーザーの時はコメント欄を表示しない-->
                 <td>
-                  <% if current_end_user == guestuser? %>
-                    <%= render "public/comments/no_comments" %>
-                  <% end %>
-
-                  <% if end_user_signed_in? %>
+                  <% if current_end_user.email == 'guest@example.com' %>
+                    ゲストユーザーはコメントできません
+                  <% else %>
                     <%= form_with model: [:public, @shop, @comments] do |f| %>
                       <%= f.text_area :comment, rows: '8', placeholder: "コメントはここへ" %>
                       <%= f.submit "送信する" %>
