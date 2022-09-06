@@ -10,19 +10,23 @@
             <% if @end_user == current_end_user %>
               <p><%= link_to "プロフィール編集", edit_public_end_user_path(@end_user) %></p>
             <% end %>
-            <thead>
-              <tr>
-                <th><%= @end_user.name %>さんの投稿一覧</th>
-              </tr>
-            </thead>
             <tbody>
-            <tr>
+              <tr>
+                <td><%= @end_user.name %>さんの投稿一覧</td>
+              </tr>
             <% @shops.each do |shop| %>
-              <td>投稿したユーザー名:<%= shop.end_user.name %></td>
-              <td>店名:<%= shop.title %></td>
-              <td>店舗説明:<%= shop.body %></td>
-              <td>コメント数:<%= link_to "#{shop.comments.count}コメント", public_shop_comments_path(shop.id) %></td>
-            </tr>
+              <tr>
+                <td>投稿したユーザー名:<%= shop.end_user.name %></td>
+              </tr>
+              <tr>
+                <td>店名:<%= shop.title %></td>
+              </tr>
+              <tr>
+                <td>店舗説明:<%= shop.body %></td>
+              </tr>
+              <tr>
+                <td>コメント数:<%= link_to "#{shop.comments.count}コメント", public_shop_comments_path(shop.id) %></td>
+              </tr>
             </tbody>
             <% end %>
           </table>
