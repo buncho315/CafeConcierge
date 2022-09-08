@@ -5,26 +5,33 @@
         <div class>
           <h1><%= @end_user.name %>さんのユーザー情報</h1>
           <table class = "table table-hover table-inverse">
-            <thead>
-              <tr>
-                <th>ユーザー名</th>
-                <th>会員id</th>
-                <th>フリガナ</th>
-                <th>メールアドレス</th>
-                <th>電話番号</th>
-                <th>郵便番号</th>
-                <th>会員ステータス</th>
-                <!--<th>投稿内容一覧</th>-->
-              </tr>
-            </thead>
             <tbody>
               <tr>
+                <td>ユーザー名</td>
                 <td><%= @end_user.name %></td>
+              </tr>
+              <tr>
+                <td>会員id</td>
                 <td><%= @end_user.id %></td>
+              </tr>
+              <tr>
+                <td>フリガナ</td>
                 <td><%= @end_user.first_name_kana%></td>
+              </tr>
+              <tr>
+                <td>メールアドレス</td>
                 <td><%= @end_user.email %></td>
+              </tr>
+              <tr>
+                <td>電話番号</td>
                 <td><%= @end_user.telephone_number %></td>
+              </tr>
+              <tr>
+                <td>郵便番号</td>
                 <td><%= @end_user.postal_code %></td>
+              </tr>
+              <tr>
+                <td>会員ステータス</td>
                 <td>
                  <% if @end_user.is_deleted.blank? %>
                     有効
@@ -47,8 +54,6 @@
             <div>
               <%= link_to "会員ステータスを変更する", admin_unsubscribe_path %>
             </div>
-
           </table>
-
   </div>
 </div>
