@@ -1,7 +1,6 @@
 class Admin::EndUsersController < ApplicationController
   def index
     @end_users = EndUser.where(is_deleted: false)
-
   end
 
   def show

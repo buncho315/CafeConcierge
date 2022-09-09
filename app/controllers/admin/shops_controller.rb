@@ -7,9 +7,6 @@ class Admin::ShopsController < ApplicationController
     @shop = Shop.find(params[:id])
   end
 
-  def edit
-  end
-
   def destroy
     @shop = Shop.find(params[:id]).destroy
     flash[:success] = "削除を実行しました！"
